@@ -3,5 +3,8 @@
     "license": "MIT",
     "keywords": ["curl","spider", "bot", "scraper"],
     "type": "library",
-    "description": "PHP Wrapper for Curl"
+    "description": "PHP Wrapper for Curl",
+    "autoload": {
+        "files": ["curl.php"]
+    }
 }
