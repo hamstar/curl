@@ -5,17 +5,31 @@ A basic CURL wrapper for PHP (see [http://php.net/curl](http://php.net/curl) for
 
 ## Installation
 
-Click the `download` link above or `git clone git://github.com/shuber/curl.git`
-
+### Installing with the composer:
+  
+Add composer.json package in your project file or create a new file.  
+```json
+{
+    "require":{
+        "shuber/curl": "dev-master"
+    }
+}
+```  
+Get the composer and install, or run the updater.  
+```bash
+curl -sS https://getcomposer.org/installer | php  
+php composer.phar install
+```  
 
 ## Usage
 
 ### Initialization
 
-Simply require and initialize the `Curl` class like so:
+Simply require the `Autoload` and initialize the object:
 
-	require_once 'curl.php';
-	$curl = new Curl;
+	require_once 'vendor/autoload.php';
+    use Shuber\LibCurl as Curl;
+	$curl = new Curl\Curl();
 
 
 ### Performing a Request

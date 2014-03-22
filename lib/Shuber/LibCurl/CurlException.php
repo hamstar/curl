@@ -1,5 +1,6 @@
 <?php
-
+namespace Shuber\LibCurl;
+use Exception;
 class CurlException extends Exception
 {
 	

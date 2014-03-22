@@ -1,5 +1,5 @@
 <?php
-
+namespace Shuber\LibCurl;
 /**
  * A basic CURL wrapper
  *
