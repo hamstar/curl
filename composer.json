@@ -5,6 +5,8 @@
     "type": "library",
     "description": "PHP Wrapper for Curl",
     "autoload": {
-        "files": ["curl.php"]
+        "psr-0" : {
+            "":"lib/"
+        }
     }
 }
