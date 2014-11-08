@@ -5,6 +5,6 @@
     "type": "library",
     "description": "PHP Wrapper for Curl",
     "autoload": {
-        "files": ["curl.php"]
+        "classmap": ["lib/"]
     }
 }
