@@ -1,1 +1,7 @@
-lib/curl_cookie.txt
+lib/veqryn/Curl/curl_cookie.txt
+.idea/
+vendor/
+build/
+composer.lock
+composer.phar
+/logs/*

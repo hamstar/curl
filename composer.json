@@ -1,10 +1,48 @@
 {
-    "name": "shuber/curl",
+    "name": "veqryn/curl",
     "license": "MIT",
-    "keywords": ["curl","spider", "bot", "scraper"],
+    "keywords": [
+        "curl",
+        "spider",
+        "bot",
+        "scraper",
+        "php",
+        "wrapper"
+    ],
+    "homepage": "https://github.com/veqryn/curl",
     "type": "library",
     "description": "PHP Wrapper for Curl",
+    "authors": [
+        {
+            "name": "Sean Huber",
+            "email": "shuber@huberry.com",
+            "homepage": "https://github.com/shuber"
+        },
+        {
+            "name": "Hugo Chinchilla Carbonell",
+            "email": "hugo@bulma.net",
+            "homepage": "https://github.com/hugochinchilla"
+        },
+        {
+            "name": "Robert Hamstar",
+            "email": "hamstar@telescum.co.nz",
+            "homepage": "https://github.com/hamstar"
+        },
+        {
+            "name": "Chris Duncan",
+            "email": "VEQRYN@hotmail.com",
+            "homepage": "https://github.com/veqryn"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*"
+    },
     "autoload": {
-        "files": ["curl.php"]
+        "psr-0": {
+            "veqryn\\Curl": "lib/"
+        }
     }
 }

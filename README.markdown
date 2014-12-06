@@ -5,7 +5,13 @@ A basic CURL wrapper for PHP (see [http://php.net/curl](http://php.net/curl) for
 
 ## Installation
 
-Click the `download` link above or `git clone git://github.com/shuber/curl.git`
+Click the `download` link above or `git clone git@github.com:veqryn/curl.git`
+
+To install into your project, add these lines to your composer.json:
+
+	"require": {
+	    "veqryn/curl": "*"
+	}
 
 
 ## Usage
@@ -14,8 +20,15 @@ Click the `download` link above or `git clone git://github.com/shuber/curl.git`
 
 Simply require and initialize the `Curl` class like so:
 
-	require_once 'curl.php';
-	$curl = new Curl;
+	require_once('vendor/autoload.php');
+
+	use veqryn\Curl\Curl;
+	use veqryn\Curl\CurlResponse;
+	use veqryn\Curl\CurlException;
+
+	// ...
+
+	$curl = new Curl();
 
 
 ### Performing a Request
@@ -34,9 +47,9 @@ To use a custom request methods, you can call the `request` method:
 
 All of the built in request methods like `put` and `get` simply wrap the `request` method. For example, the `post` method is implemented like:
 
-	function post($url, $vars = array()) {
-	    return $this->request('POST', $url, $vars);
-	}
+	public function post($url, $vars = array(), $enctype = null) {
+            return $this->request('POST', $url, $vars, $enctype);
+        }
 
 Examples:
 
@@ -47,7 +60,7 @@ Examples:
 	
 	$response = $curl->post('test.com/posts', array('title' => 'Test', 'body' => 'This is a test'));
 
-All requests return a CurlResponse object (see below) or false if an error occurred. You can access the error string with the `$curl->error()` method.
+All requests return a CurlResponse object (see below) or throw a CurlException if an error occurred. You can access the error string with the `$curl->error()` method.
 
 
 ### The CurlResponse Object
@@ -130,11 +143,14 @@ You can set/override many different options for CURL requests (see the [curl_set
 
 ## Testing
 
-Uses [ztest](http://github.com/jaz303/ztest), simply download it to `path/to/curl/test/ztest` (or anywhere else in your php include_path)
+Uses [phpunit](https://phpunit.de/).  Simply run phpunit in the 'test' directory.
+Example on linux (assuming php is on your path):
 
-Then run `test/runner.php`
+    cd <project_root_dir>/test
+    ../vendor/bin/phpunit
+
 
 
 ## Contact
 
-Problems, comments, and suggestions all welcome: [shuber@huberry.com](mailto:shuber@huberry.com)
+Problems, comments, and suggestions all welcome: [shuber@huberry.com](mailto:shuber@huberry.com) and/or VEQRYN [at] hotmail dot com

@@ -1,26 +1,29 @@
 <?php
 
+namespace veqryn\Curl;
+
 /**
+ * Class CurlResponse
  * Parses the response from a Curl request into an object containing
  * the response body and an associative array of headers
  *
- * @package curl
+ * @package Curl
  * @author Sean Huber <shuber@huberry.com>
-**/
+ **/
 class CurlResponse {
 
     /**
      * The body of the response without the headers block
      *
      * @var string
-    **/
+     **/
     public $body = '';
 
     /**
      * An associative array containing the response's headers
      *
      * @var array
-    **/
+     **/
     public $headers = array();
 
     /**
@@ -33,8 +36,11 @@ class CurlResponse {
      * </code>
      *
      * @param string $response
-    **/
-    function __construct($response) {
+     **/
+    public function __construct($response) {
+        if (empty($response)) {
+            return;
+        }
         # Headers regex
         $pattern = '#HTTP/\d\.\d.*?$.*?\r\n\r\n#ims';
 
@@ -45,7 +51,7 @@ class CurlResponse {
 
         # Inlude all received headers in the $headers_string
         while (count($matches[0])) {
-          $headers_string = array_pop($matches[0]).$headers_string;
+            $headers_string = array_pop($matches[0]) . $headers_string;
         }
 
         # Remove all headers from the response body
@@ -69,14 +75,14 @@ class CurlResponse {
      * Returns the response body
      *
      * <code>
-     * $curl = new Curl;
+     * $curl = new Curl();
      * $response = $curl->get('google.com');
      * echo $response;  # => echo $response->body;
      * </code>
      *
      * @return string
-    **/
-    function __toString() {
+     **/
+    public function __toString() {
         return $this->body;
     }
 
